@@ -116,7 +116,7 @@
 		function countDown(){
 			if(cnt ==0) {
 				clearInterval(s);
-				location.href="index";
+				location.href="index.shs";
 			} 
 			document.getElementById("rCnt").innerHTML=cnt;
 			cnt--;			

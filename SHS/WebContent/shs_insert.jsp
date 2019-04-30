@@ -113,7 +113,7 @@
 			</div>
 		</a>	
 		<div class="shs_manager"> - 학사등록 - </div>
-		<form action="SHSInsert" id="frm_insert" name="frm_insert" method="POST">
+		<form action="insertPlay.shs" id="frm_insert" name="frm_insert" method="POST">
 			<div class="in_content">				
 				<div class="div_input">
 					<label for="input_name">이름:</label>
@@ -137,7 +137,7 @@
 				</div>
 			</div>
 			<div class="div_index btn_wrap">
-				<a href="index" class="btn_index btn3">취소</a>
+				<a href="index.shs" class="btn_index btn3">취소</a>
 				<a href="#" class="btn_index btn1 submitBtn">등록</a>
 			</div>
 		</form>
