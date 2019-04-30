@@ -33,7 +33,7 @@ function nameCheck() {
 
 
 function ageCheck() {
-	var age = $.trim($('#input_age').val()); 	
+	var age = $.trim($('#input_age').val()); 	//$.trim = 문자열 좌우값중 공백을 없애주는기능을함 .val()은 양식(form)의 값을 가져오거나 값을 설정하는 메소드
 	if (age == '' || age.length == 0) {
 		$('.err_msg').eq(1).css('display', 'block')
 						   .css('color', 'tomato')

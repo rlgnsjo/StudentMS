@@ -9,4 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+	<servlet-name>FrontController</servlet-name>
+    <servlet-class>com.shs.controller.FrontController</servlet-class>   <!-- 해당 FrontController의 경로를 설정해준것! -->
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FrontController</servlet-name>   <!--  ~shs 라는것으로  끝나면FrontController를 타라 . -->
+  	<url-pattern>*.shs</url-pattern>
+  </servlet-mapping>
 </web-app>
