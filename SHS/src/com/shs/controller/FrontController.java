@@ -16,6 +16,8 @@ import com.shs.action.ActionForward;
 import com.shs.action.IndexAction;
 import com.shs.action.InsertAction;
 import com.shs.action.InsertPlayAction;
+import com.shs.action.SearchAction;
+import com.shs.action.SearchPlayAction;
 import com.shs.action.WelcomeAction;
 
 
@@ -61,13 +63,19 @@ public class FrontController extends HttpServlet {
 			action = new IndexAction();  // new IndexAction()객체를 생성
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} else if (command.equals("/insert.shs")) {
-			action = new InsertAction();  // new IndexAction()객체를 생성
+			action = new InsertAction();  // 
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} else if (command.equals("/insertPlay.shs")) {
-			action = new InsertPlayAction();  // new IndexAction()객체를 생성
+			action = new InsertPlayAction();  //
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} else if (command.equals("/welcome.shs")) {
-			action = new WelcomeAction();  // new IndexAction()객체를 생성
+			action = new WelcomeAction();  //
+			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
+		} else if (command.equals("/search.shs")) {
+			action = new SearchAction();  // 
+			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
+		} else if (command.equals("/searchPlay.shs")) {
+			action = new SearchPlayAction();  // 
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} 
 		

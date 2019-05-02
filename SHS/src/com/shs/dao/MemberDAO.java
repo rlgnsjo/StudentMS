@@ -113,7 +113,7 @@ public class MemberDAO {
 	// 학생 제적!!
 	public int memDelete(int id) {
 		sqlSession = sqlSessionFactory.openSession(true);
-
+		
 		try {
 			result = sqlSession.delete("memDelete", id);
 			if (result > 0) {
@@ -128,5 +128,26 @@ public class MemberDAO {
 			sqlSession.close();
 		}
 		return result;
+	}
+	
+	//학생검색(이름)
+	public 	List<MemberDTO> memSearch(String name) {
+		List<MemberDTO> list = null;
+		sqlSession = sqlSessionFactory.openSession();
+		try {
+			list = sqlSession.selectList("memSearch", name);
+			
+			for (MemberDTO memberDTO : list) {
+				System.out.println(memberDTO.getSid() + ", ");
+				System.out.println(memberDTO.getSname() + ", ");
+				System.out.println(memberDTO.getSphone());
+				System.out.println();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return list;
 	}
 }
