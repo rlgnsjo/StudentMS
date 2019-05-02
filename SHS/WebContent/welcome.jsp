@@ -5,23 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel= "stylesheet" href= "css/common.css">	
 <style type="text/css">
-		@import url('https://fonts.googleapis.com/css?family=Jua&subset=korean');
-		* {
-			font-family: 'Jua', sans-serif;
-			box-sizing: border-box;
-		}
-		body,ul {
-			margin: 0;
-			padding: 0;
-		}
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
-		ul {
-			list-style: none;
-		}
+		
 
 		.content {
 			width: 390px;
@@ -34,12 +20,7 @@
 						0 2px 10px 0 rgba(0,0,0,0.12);
 			padding-bottom: 50px;
 		}
-		.shs_title {
-			padding-top: 50px;
-			text-align: center;
-			font-size: 30px;
-			color: black; 			
-		}
+		
 		.shs_manager {
 			padding-top: 20px;
 			padding-bottom: 20px;
@@ -96,12 +77,7 @@
 </head>
 <body>
 <div class="content">
-		<a href="index.jsp">
-			<div class="shs_title">
-				JAVA기반 스마트하이브리드<br>
-				개발자과정 2기				
-			</div>
-		</a>	
+		<%@ include file="include/header.jsp" %>
 		<div class="shs_manager"> - 환영합니다. -</div>
 		<div class="container">
 			<div class="welcome_text text1">등록해주셔서 감사합니다.</div>

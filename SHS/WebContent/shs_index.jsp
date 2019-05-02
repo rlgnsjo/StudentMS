@@ -5,24 +5,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>학사관리</title>
-	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css?family=Jua&subset=korean');
-		* {
-			font-family: 'Jua', sans-serif;
-			box-sizing: border-box;
-		}
-		body,ul {
-			margin: 0;
-			padding: 0;
-		}
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
-		ul {
-			list-style: none;
-		}
-
+	<link rel= "stylesheet" href= "css/common.css">	
+   <!-- 헤더부분을 인크루드 기능을 통하여 첨부해서 사용할수있음.  -->
+	<style type="text/css">		
 		.content {
 			width: 390px;
 			height: 600px;
@@ -34,12 +19,7 @@
 						0 2px 10px 0 rgba(0,0,0,0.12);
 			padding-bottom: 50px;
 		}
-		.shs_title {
-			padding-top: 50px;
-			text-align: center;
-			font-size: 30px;
-			color: black; 			
-		}
+		
 		.shs_manager {
 			padding-top: 20px;
 			padding-bottom: 20px;
@@ -82,11 +62,8 @@
 </head>
 <body>
 	<div class="content">
-		<a href="index.jsp">
-			<div class="shs_title">
-				JAVA기반 스마트하이브리드<br> 개발자과정 2기
-			</div>
-		</a>
+		
+		<%@ include file="include/header.jsp" %>
 		<div class="shs_manager">- 학사관리 -</div>
 		<div class="container">
 			<div class="div_index">

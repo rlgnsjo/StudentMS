@@ -8,23 +8,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>출석부</title>
+	<link rel= "stylesheet" href= "css/common.css">	
 	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css?family=Jua&subset=korean');
-		* {
-			font-family: 'Jua', sans-serif;
-			box-sizing: border-box;
-		}
-		body,ul {
-			margin: 0;
-			padding: 0;
-		}
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
-		ul {
-			list-style: none;
-		}
+		
 
 		.content {
 			position: relative;
@@ -37,12 +23,7 @@
 			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),
 						0 2px 10px 0 rgba(0,0,0,0.12);
 		}
-		.shs_title {
-			padding-top: 50px;
-			text-align: center;
-			font-size: 30px;
-			color: black; 			
-		}
+		
 		.shs_manager {
 			padding-top: 20px;
 			padding-bottom: 20px;
@@ -164,12 +145,7 @@
 			</div>
 		</div>
 		
-			<div class="shs_title">
-			 	<a href= index.jsp>
-				JAVA기반 스마트하이브리드<br>
-				개발자과정 2기	
-				</a>							
-			</div>
+			<%@ include file="include/header.jsp" %>
 			
 		<div class="shs_manager"> - 출석부 - </div>
 		<div class="in_content">
