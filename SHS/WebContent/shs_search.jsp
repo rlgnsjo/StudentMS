@@ -297,7 +297,36 @@
 			
 			location.href="searchPlay.shs?name=" + name;
 		});		
-		
+		$('#input_search').keyup(function(e){
+			if(e.keyCode == 13){
+				var name = $.trim($('#input_search').val());
+				var regEmpty = /\s/g;
+				// 숫자를 못들어오게 체크 
+				var regNum = /[~0-9]/g;
+
+				//name 값이 공백이거나 name값의 길이가 0이면 해당 if문 실행문 실행
+				if (name == '' || name.length == 0) {
+					$('.err_msg').css('display', 'block').css('color', 'tomato')
+							.text('필수 정보입니다.');
+					// (regNum정규식체크이용)숫자가 들어왔을때 경고문을 주기위해 작성한 유효성체크.
+					return false;
+				} else if (regNum.test(name)) {
+					$('.err_msg').css('display', 'block').css('color', 'tomato')
+							.text('문자값만 들어올수 있습니다 .');
+					return false;
+				} else if (name.match(regEmpty)) {
+					$('.err_msg').css('display', 'block').css('color', 'tomato')
+							.text('공백값은 들어올수 없습니다.');
+					return false;
+				} else if (name.length > 4 || name.length < 2) {
+					$('.err_msg').css('display', 'block').css('color', 'tomato')
+							.text('2~4글자로만 입력해주세요.');
+					return false;
+				} 
+				
+				location.href="searchPlay.shs?name=" + name;
+			}
+		});
 	});
 		
 	</script>
