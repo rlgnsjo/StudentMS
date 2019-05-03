@@ -32,11 +32,15 @@ public class MemberDAO {
 
 	// 학생등록
 	public int memInsert(MemberDTO mDto) {
+		// (11) mybatis를사용하기 위해 sqlSessionFactory를 사용하여 sqlSession을 생성 매개변수로 true를 넣어 auto commit 기능추가		
 		sqlSession = sqlSessionFactory.openSession(true); // commit를 입력해주기 위해 true 입력!!
 		// sqlSession.commit();다른 commit방법
 		try {
-			result = sqlSession.insert("memInsert", mDto); // sqlSession에서 insert동작중에서 "memInsert"를 가져오고 mDto에 있는 값을
-															// 적어준다.
+			//(12) 생성된 sqlSession을 사용하여 mybatis insert구문을 실행(**Mapper.xml),  sql문은 memInsert를 ID값으로 가지는 SQL문을 실행
+			//SQL문 바인딩변수(ex:#{sid})에 들어갈 값은 mDto  결론: mapper.xml가서 memInsert SQL문에 mDto 값을 
+			//바인딩 변수로 채워주고 SQL문을 실행해라.
+			result = sqlSession.insert("memInsert", mDto); // sqlSession에서 insert동작중에서 "memInsert"를 가져오고 mDto에 있는 값을적어준다.
+			//(14) DB에서 실행한 SQL문의 결과가 result 변수에 담김. 												
 
 			if (result > 0) {
 				System.out.println("등록 성공");
@@ -49,6 +53,7 @@ public class MemberDAO {
 		} finally {
 			sqlSession.close();
 		}
+		// (15) DB에서 SQL문 실행결과가 담긴 result 변수를 호출했던곳(InsertPlayAction)으로 전송. 
 		return result; // return을 만나면 메서드종결
 
 	}

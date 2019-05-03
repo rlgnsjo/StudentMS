@@ -54,6 +54,19 @@ public class FrontController extends HttpServlet {
 		Action action = null;
 		ActionForward forward = null;  //action에 보낸 forward값이 담겨있음. 
 		
+		//4(4).uri와 ctx를 뻬서 남은 경로를 생성한다. 
+		// uri = /SHS/insert.shs
+		// ctx/SHS
+		//uri - ctx = /insert.shs =command
+		
+		
+
+		//(4).uri와 ctx를 뻬서 남은 경로를 생성한다. 
+		// uri = /SHS/insertPlay.shs
+		// ctx/SHS
+		//uri - ctx = /insertPlay.shs =command
+		
+		
 		String uri = request.getRequestURI();   // 
 		String ctx = request.getContextPath();
 		String command = uri.substring(ctx.length()); //substring은 문자열값을 빼준다. uri에서  ctx 글씨값을 뺀값이 command다.  
@@ -63,15 +76,25 @@ public class FrontController extends HttpServlet {
 		//System.out.println("ctx====>" + ctx);
 		//System.out.println("uri====>" + uri);
 		
+		// 5.if문을 돌면서 생성한 url주소(/insert.shs)와 같은 조건문을 탐색 
 		
+		// (5).if문을 돌면서 생성한 url주소(/insertPlay.shs)와 같은 조건문을 탐색 
 		if (command.equals("/index.shs")) {
 			action = new IndexAction();  // new IndexAction()객체를 생성
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} else if (command.equals("/insert.shs")) {
-			action = new InsertAction();  // 
+			// 6.InsertAction 클래스 객체 생성후 생성된action 인스턴스를 사용하여 execute(request, response) 함수를 실행
+			// 매개변수로 request와 response를 전송.
+			action = new InsertAction();  
+			
+			//9. InsertAction 클래스에서 보낸 return값 (forward)를 전역변수 forward에 담음.
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} else if (command.equals("/insertplay.shs")) {
+			// (6).InsertPlayAction 클래스 객체 생성후 생성된action 인스턴스를 사용하여 execute(request, response) 함수를 실행
+			// 매개변수로 request와 response를 전송. 현재 jsp에서 보낸 input태그들의 값은 request에 담겨있음. 
+			// execute()함수를 실행할 때 매개변수로 request를 전송함으로 InsertPlayAction 클래스에서 input태그들의 값을 사용할수 있음.
 			action = new InsertPlayAction();  //
+			//(20). InsertPlayAction 클래스에서 보낸 return값 (forward)를 전역변수 forward에 담음.
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} else if (command.equals("/welcome.shs")) {
 			action = new WelcomeAction();  //
@@ -111,12 +134,25 @@ public class FrontController extends HttpServlet {
 		
 		
 		//--------- 공통분기 작업-----------
+		
+		// 10. InsertAction에서 보낸 return값 forward를 사용하여 페이지 이동경로와 방법 데이터를 전송
+		// forward.getPath() = "shs_insert.jsp"     forward.isRedirect() = false;
+		// forward가 null이 아니기 때문에 if문 실행. 
+		
+		
+		// (21). InsertPlayAction에서 보낸 return값 forward를 사용하여 페이지 이동경로와 방법 데이터를 전송
+				// forward.getPath() = "welcome.jsp"     forward.isRedirect() = true;
+				// forward가 null이 아니기 때문에 if문 실행. 
 		if (forward != null) {
-			if(forward.isRedirect()) {  //actionForward class의isRedirect() 함수를 실행! isRedirect()에는 false값이 들어있으므로 실행 X
-				                        //page 전환시 redirect방식
+			
+			//  11. forward.isRedirect() 가 false 이기 때문에 if문을 실행하지않고 else문 실행
+			
+			//  (22). forward.isRedirect() 가 true 이기 때문에 if문을 실행하지않고 else문 실행
+			if(forward.isRedirect()) {  
+				//(23). sendRedirect방식으로 'welcome.jsp'페이지 이동
 				response.sendRedirect(forward.getpath());
 			}else {
-				// page전환시 forward방식 
+				// 12. forward방식으로 'shs_insert.jsp'페이지 이동
 				RequestDispatcher rd = request.getRequestDispatcher(forward.getpath());
 				rd.forward(request, response);
 			}
