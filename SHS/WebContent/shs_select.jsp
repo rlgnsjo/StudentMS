@@ -130,6 +130,12 @@
 		.name{
 			color:dodgerblue;
 		}	
+		.cnt_text{
+			display: block;
+		 	text-align: right;
+		 	margin-top: -20px;
+		 	padding-right: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -168,15 +174,19 @@
 					<td class="sid">${mDto.sid}</td>
 					<td class="sname">${mDto.sname}</td>
 					<td>${mDto.sphone}</td>
-					<td><a href="SHSUpdate?id=${mDto.sid}" class="uBtn">수정</a></td>
+					<td><a href="update.shs?id=${mDto.sid}" class="uBtn">수정</a></td>
 					<td><a href="#" class="dBtn">삭제</a></td>
 				</tr>		
-				</c:forEach>	
-							
+				</c:forEach>								
 			</table>
 		</div>
+		<div class="in_content">
+			<c:if test="${cnt > 0}">
+			<span class="cnt_text">총 인원 ${cnt}명</span>
+			</c:if>
+		</div>
 		<div class="div_index">
-			<a href="index" class="btn_index btn3">뒤로가기</a>			
+			<a href="index.shs" class="btn_index btn3">뒤로가기</a>			
 		</div>
 		
 	</div>
@@ -197,7 +207,7 @@
 			
 		});
 		$('.modal_dBtn').click(function(){
-			location.href = "SHSDelete?id="+id; 			
+			location.href = "delete.shs?id="+id; 			
 			
 		});
 		

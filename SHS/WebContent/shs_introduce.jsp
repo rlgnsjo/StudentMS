@@ -118,7 +118,7 @@
 </head>
 <body>
 <div class="content">
-		<a href="index.jsp">
+		<a href="index.shs">
 			<div class="shs_title">
 				만든이!<br>
 											
@@ -131,7 +131,7 @@
 		<form action="#" id="frm_insert" name="frm_insert" method="POST">
 			
 			<div class="div_index btn_wrap">
-				<a href="index_jsp" class="btn_index btn3">돌아가기</a>
+				<a href="index.shs" class="btn_index btn3">돌아가기</a>
 				<!-- <a href="#" class="btn_index btn1">수정</a> -->
 			</div>
 		</form>

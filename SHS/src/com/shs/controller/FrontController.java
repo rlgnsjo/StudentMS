@@ -13,12 +13,16 @@ import org.apache.catalina.connector.Response;
 
 import com.shs.action.Action;
 import com.shs.action.ActionForward;
+import com.shs.action.DeletePlayAction;
 import com.shs.action.IndexAction;
 import com.shs.action.InsertAction;
 import com.shs.action.InsertPlayAction;
 import com.shs.action.IntroduceAction;
 import com.shs.action.SearchAction;
 import com.shs.action.SearchPlayAction;
+import com.shs.action.SelectPlayAction;
+import com.shs.action.UpdateAction;
+import com.shs.action.UpdatePlayAction;
 import com.shs.action.WelcomeAction;
 
 
@@ -66,7 +70,7 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("/insert.shs")) {
 			action = new InsertAction();  // 
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
-		} else if (command.equals("/insertPlay.shs")) {
+		} else if (command.equals("/insertplay.shs")) {
 			action = new InsertPlayAction();  //
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} else if (command.equals("/welcome.shs")) {
@@ -81,7 +85,29 @@ public class FrontController extends HttpServlet {
 		} else if (command.equals("/introduce.shs")) {
 			action = new IntroduceAction();  // 
 			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
+		} else if (command.equals("/select.shs")) {
+			action = new SelectPlayAction();  // 
+			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
+		} else if (command.equals("/update.shs")) {
+			action = new UpdateAction();  // 
+			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
+		}  else if (command.equals("/updatePlay.shs")) {
+			action = new UpdatePlayAction();  // 
+			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
+		} else if (command.equals("/delete.shs")) {
+			action = new DeletePlayAction();  // 
+			forward = action.execute(request, response); // 인스턴스를 사용해서 execute함수를 사용해서	request, response를 매개변수로 반환		
 		} 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		//--------- 공통분기 작업-----------
